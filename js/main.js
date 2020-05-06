@@ -57,15 +57,12 @@ function notAuthorized () {
 
   function logIn (event) {
     event.preventDefault();
-    
-    login = loginInput.value;
 
-    if (login != 0) {
+    if (loginInput.value) {
+      login = loginInput.value;
       loginInput.style.borderColor = '';
       localStorage.setItem('delivery', login);
-    
       toggleModalAuth();
-  
       buttonAuth.removeEventListener('click', toggleModalAuth);
       closeAuth.removeEventListener('click', toggleModalAuth);
       logInForm.removeEventListener('submit', logIn);
