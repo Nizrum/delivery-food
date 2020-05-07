@@ -841,4 +841,12 @@ button {
     .footer-link:not(:last-child) {
         margin-right: 0;
     }
+    .modal-dialog-auth {
+        padding: 20px;
+        width: 97%;
+    }
+    .close-auth {
+        font-size: 28px;
+        padding: 0;
+    }
 }
