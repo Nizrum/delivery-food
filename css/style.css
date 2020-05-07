@@ -849,4 +849,7 @@ button {
         font-size: 28px;
         padding: 0;
     }
+    .modal-body {
+        margin: 0 auto 22px;
+    }
 }
