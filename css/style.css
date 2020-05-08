@@ -494,6 +494,7 @@ button {
 .food-row {
     display: flex;
     align-items: flex-start;
+    flex-wrap: wrap;
     justify-content: space-between;
     padding-bottom: 8px;
     border-bottom: 1px solid #d9d9d9;
@@ -851,5 +852,8 @@ button {
     }
     .modal-body {
         margin: 0 auto 22px;
+    }
+    .food-name {
+        flex-basis: 100%;
     }
 }
