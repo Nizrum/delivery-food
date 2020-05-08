@@ -108,7 +108,7 @@ function checkAuth () {
 function createCardRestaurant ({ image, kitchen, name, price, products, stars, time_of_delivery: timeOfDelivery }) {
   
   const card = `
-    <a class="card card-restaurant" data-products="${products}" data-name="${name}" data-kitchen="${kitchen}" data-price="${price}" data-stars="${stars}">
+    <a class="card card-restaurant" data-products="${products}" data-info="${[name, stars, price, kitchen]}">
       <img src="${image}" alt="image" class="card-image"/>
       <div class="card-text">
         <div class="card-heading">
@@ -159,10 +159,8 @@ function createCardGood ({ description, id, image, name, price }) {
 }
 
 function createInfoRestaurant (restaurant) {
-  const kitchen = restaurant.dataset.kitchen;
-  const name = restaurant.dataset.name;
-  const price = restaurant.dataset.price;
-  const stars = restaurant.dataset.stars;
+  const dataInfo = restaurant.dataset.info.split(',');
+  const [ name, stars, price, kitchen ] = dataInfo;
   const info = `
 		<h2 class="section-title restaurant-title">${name}</h2>
 		<div class="card-info">
