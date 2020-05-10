@@ -21,7 +21,11 @@ const modalBody = document.querySelector('.modal-body');
 const modalPrice = document.querySelector('.modal-pricetag');
 const buttonClearCart = document.querySelector('.clear-cart');
 
-const cart = [];
+const cart = JSON.parse(localStorage.getItem('deliveryCart')) || [];
+
+const saveCart = function () {
+  localStorage.setItem('deliveryCart', JSON.stringify(cart));
+}
 
 let login = localStorage.getItem('delivery');
 
@@ -220,8 +224,8 @@ function addToCart (event) {
         count: 1,
       });
     }
-    console.log(cart);
   }
+  saveCart();
 }
 
 function renderCart () {
@@ -265,6 +269,7 @@ function changeCount (event) {
     }
     if (target.classList.contains('counter-plus')) food.count++;
     renderCart();
+    saveCart();
   }
 }
 
