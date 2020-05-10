@@ -23,10 +23,18 @@ const buttonClearCart = document.querySelector('.clear-cart');
 
 let login = localStorage.getItem('delivery');
 
-const cart = JSON.parse(localStorage.getItem('deliveryCart')) || [];
+const cart = [];
+
+const loadCart = function () {
+  if (localStorage.getItem(login)) {
+    JSON.parse(localStorage.getItem(login)).forEach(function (item) {
+      cart.push(item);
+    });
+  }
+}
 
 const saveCart = function () {
-  localStorage.setItem('deliveryCart', JSON.stringify(cart));
+  localStorage.setItem(login, JSON.stringify(cart));
 }
 
 const getData = async function (url) {
@@ -58,7 +66,7 @@ function authorized () {
 
   function logOut () {
     login = null;
-
+    cart.length = 0;
     localStorage.removeItem('delivery');
 
     buttonAuth.style.display = '';
@@ -76,6 +84,7 @@ function authorized () {
   buttonOut.style.display = 'flex';
   cartButton.style.display = 'flex';
   buttonOut.addEventListener('click', logOut);
+  loadCart();
 }
 
 function notAuthorized () {
