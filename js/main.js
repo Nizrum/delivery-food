@@ -21,13 +21,13 @@ const modalBody = document.querySelector('.modal-body');
 const modalPrice = document.querySelector('.modal-pricetag');
 const buttonClearCart = document.querySelector('.clear-cart');
 
+let login = localStorage.getItem('delivery');
+
 const cart = JSON.parse(localStorage.getItem('deliveryCart')) || [];
 
 const saveCart = function () {
   localStorage.setItem('deliveryCart', JSON.stringify(cart));
 }
-
-let login = localStorage.getItem('delivery');
 
 const getData = async function (url) {
   const response = await fetch(url);
@@ -286,6 +286,7 @@ function init () {
   buttonClearCart.addEventListener('click', function () {
     cart.length = 0;
     renderCart();
+    saveCart();
   });
 
   modalBody.addEventListener('click', changeCount);
