@@ -780,6 +780,7 @@ button {
 }
 
 @media (max-width: 480px) {
+    
     .button-text {
         display: none;
     }
@@ -790,18 +791,26 @@ button {
 
     .user-name {
         margin: 10px;
-
+        margin-left: 0;
     }
 
     .buttons {
         flex-wrap: wrap;
         margin-left: auto;
+        margin-left: 0;
+        margin-top: 15px;
     }
 
     .button {
         min-height: 40px;
         padding: 5px 12px;
+    }
 
+    .button-login {
+        margin-right: 0px;
+    }
+    .button-auth {
+        margin-right: 0px;
     }
 
     .button-out-svg {
@@ -855,5 +864,25 @@ button {
     }
     .food-name {
         flex-basis: 100%;
+        margin-bottom: 10px;
+    }
+    .input-search {
+        width: 290px;
+    }
+    .header .logo {
+        align-self: flex-end;
+        margin-right: 10px;
+    }
+    body {
+        padding-top: 10px;
+    }
+    .food-price {
+        margin-left: 0;
+    }
+    .modal-footer {
+        flex-wrap: wrap;
+    }
+    .footer-buttons {
+        margin-top: 10px;
     }
 }
