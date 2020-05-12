@@ -325,3 +325,5 @@ function init () {
 }
 
 init();
+
+new WOW({mobile: false}).init();
